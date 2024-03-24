@@ -14,10 +14,6 @@ const db = mysql.createConnection({
     database : 'world'
 })
 
-app.get('/',(request,response) => {
-    return response.json({ message: "From Backend Side" }); // Send JSON response
-});
-
 app.get("/users",(req,res) => {
     const query = 'SELECT * FROM login_users';
     let arr = []
