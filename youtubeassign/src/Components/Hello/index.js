@@ -11,6 +11,7 @@ class Hello extends Component {
     getData = async () => {
         const response = await fetch("https://sample-frontend-and-backend.vercel.app/users");
         const data = await response.json()
+        console.log(data);
         this.setState({itemsList:data})
     };
 
