@@ -20,8 +20,9 @@ const initializeDBAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(process.env.PORT, () => {
-      console.log(`Server Running at http://localhost:${process.env.PORT}/`);
+    const port = process.env.PORT || 3001;
+    app.listen(port, () => {
+      console.log(`Server Running at http://localhost:${port}/`);
     });
   } catch (e) {
     console.log(`DB Error: ${e.message}`);
