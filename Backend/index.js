@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
@@ -18,7 +21,7 @@ const initializeDBAndServer = async () => {
       driver: sqlite3.Database,
     });
     app.listen(3001, () => {
-      console.log("Server Running at http://localhost:3001/");
+      console.log(`Server Running at http://localhost:${process.env.PORT}/`);
     });
   } catch (e) {
     console.log(`DB Error: ${e.message}`);
